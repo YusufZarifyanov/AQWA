@@ -7,8 +7,8 @@
       <div class="home__btn1">
         <a>Рассчитать стоимость</a>
       </div>
-      <div class="home__btn2">
-        <a>Услуги</a>
+      <div class="home__btn2" hr>
+        <a href="#service" style="color: white">Услуги</a>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
 .home {
   background-image:
       linear-gradient(to bottom, rgba(4, 69, 87, 0.80), rgba(117, 19, 93, 0.73)),
-      url("@/assets/homeImg.jpg");
+      url("@/assets/images/homeImg.jpg");
   background-size: cover;
   min-height: 90vh;
 
@@ -66,6 +66,7 @@ export default {
   justify-content: center;
   align-items: center;
   color: white;
+  text-decoration: none;
 }
 
 p {
@@ -74,6 +75,7 @@ p {
   font-weight: 600;
 }
 
-
-
+a {
+  text-decoration: none;
+}
 </style>
