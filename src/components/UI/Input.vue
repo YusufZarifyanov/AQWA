@@ -20,7 +20,8 @@ export default {
 .input {
   width: 100%;
   border: 1px solid teal;
-  padding: 10px 15px;
+  padding: 20px 15px;
   margin: 20px;
+  background-color: white;
 }
 </style>

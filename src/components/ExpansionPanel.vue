@@ -42,7 +42,6 @@ export default {
 <style scoped>
 .expansionPanel {
   background-color: #f0f0f0;
-  height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -63,7 +62,7 @@ export default {
 }
 
 .expansionPanel__description {
-  margin-top: 40px;
+  margin: 40px 0;
   width: 80%;
   text-align: center;
 }

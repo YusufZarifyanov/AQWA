@@ -4,61 +4,102 @@
       <h1>Процесс заказа</h1>
     </div>
 
-    <ol class="steplist__proc circle-big">
-      <li>
-        1
-        <div class="steplist__proc__text">
-          <div>
-            <h3>Согласование</h3>
+    <v-app class="steplist__proc">
+      <v-timeline v-if="!small" direction= "horizontal" truncate-line="both">
+        <v-timeline-item>
+          <div class="steplist__proc__item">
+            <div class="text-h6" style="font-weight: 600">Согласование</div>
+            <p>
+              Заказчик согласовывает стоимость и состав проектирования с менеджером проекта
+            </p>
           </div>
-          <div class="steplist__proc__text__description">
-            <p align="justify">Заказчик согласовывает стоимость и состав проектирования с менеджером проекта.</p>
-          </div>
-        </div>
-      </li>
+        </v-timeline-item>
 
-      <li>
-        2
-        <div class="steplist__proc__text">
+        <v-timeline-item>
           <div>
-            <h3>Техническое задание</h3>
+            <div class="text-h6" style="font-weight: 600">Техническое задание</div>
+            <p>
+              Составляется техническое задание для проекта
+            </p>
           </div>
-          <div class="steplist__proc__text__description">
-            <p align="justify">Составляется техническое задание для проекта.</p>
-          </div>
-        </div>
-      </li>
+        </v-timeline-item>
 
-      <li>
-        3
-        <div class="steplist__proc__text">
+        <v-timeline-item>
           <div>
-            <h3>Договор</h3>
+            <div class="text-h6" style="font-weight: 600">Договор</div>
+            <p>
+              Заключается договор на проектирование и вносится предоплата
+            </p>
           </div>
-          <div class="steplist__proc__text__description">
-            <p align="justify">Заключается договор на проектирование и вносится предоплата.</p>
-          </div>
-        </div>
-      </li>
+        </v-timeline-item>
 
-      <li>
-        4
-        <div class="steplist__proc__text">
+        <v-timeline-item>
           <div>
-            <h3>Правки и сдача проекта</h3>
+            <div class="text-h6" style="font-weight: 600">Правки и сдача проекта</div>
+            <p>
+              Заказчик вносит правки и после оплачивает остаток по договору.
+              Заказчику передается спецификация на материалы и оборудование
+            </p>
           </div>
-          <div class="steplist__proc__text__description">
-            <p align="justify">Заказчик вносит правки и после оплачивает остаток по договору. Заказчику передается спецификация на материалы и оборудование.</p>
+        </v-timeline-item>
+      </v-timeline>
+      <v-timeline v-else direction= "vertical" truncate-line="both">
+        <v-timeline-item>
+          <div class="steplist__proc__item">
+            <div class="text-h6" style="font-weight: 600">Согласование</div>
+            <p>
+              Заказчик согласовывает стоимость и состав проектирования с менеджером проекта
+            </p>
           </div>
-        </div>
-      </li>
-    </ol>
+        </v-timeline-item>
+
+        <v-timeline-item>
+          <div class="steplist__proc__item">
+            <div class="text-h6" style="font-weight: 600">Техническое задание</div>
+            <p>
+              Составляется техническое задание для проекта
+            </p>
+          </div>
+        </v-timeline-item>
+
+        <v-timeline-item>
+          <div class="steplist__proc__item">
+            <div class="text-h6" style="font-weight: 600">Договор</div>
+            <p>
+              Заключается договор на проектирование и вносится предоплата
+            </p>
+          </div>
+        </v-timeline-item>
+
+        <v-timeline-item>
+          <div class="steplist__proc__item">
+            <div class="text-h6" style="font-weight: 600">Правки и сдача проекта</div>
+            <p>
+              Заказчик вносит правки и после оплачивает остаток по договору.
+              Заказчику передается спецификация на материалы и оборудование
+            </p>
+          </div>
+        </v-timeline-item>
+      </v-timeline>
+    </v-app>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Steplist"
+  name: "Steplist",
+  data: () => ({
+    small: false
+  }),
+  created() {
+    this.checkSize();
+    window.addEventListener('resize', this.checkSize)
+  },
+  methods: {
+    checkSize(){
+      this.small = innerWidth < 1200
+    }
+  }
 }
 </script>
 
@@ -66,80 +107,57 @@ export default {
 *, ::after, ::before { box-sizing: border-box; }
 
 .steplist {
-  height: 100vh;
+  height: 650px;
   background-color: yellow;
-}
 
-.steplist__title {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  padding-top: 10vh;
-}
-
-.steplist__proc {
-  border-top: 3px solid black;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  list-style-type: none;
-  /*gap: 3em;*/
-  width: 100%;
-
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30vh;
-
-}
-
-.steplist__proc li {
-  color: black;
-  cursor: pointer;
-  padding: calc(5px + var(--circle-radius)) 0 0;
-  margin: 0;
-  position: relative;
-  text-align: center;
-
-}
-
-.steplist__proc li::before {
-  background-color: black;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-
-  content: '';
-  position: absolute;
-  height: calc(2 * var(--circle-radius));
-  width: calc(2 * var(--circle-radius));
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
-.steplist__proc li:first-child::after {
-  display: none;
-}
-
-.steplist__proc li:last-child::after {
-  display: none;
-}
-
-.circle-big {
-  --circle-radius: 18px;
-}
-
-.steplist__proc__text {
-  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.steplist__proc__text__description {
-  /*text-align: start;*/
-  margin-top: 20px;
-  width: 100%;
-
+.steplist__title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 5vh;
 }
 
+.steplist__proc {
+  width: 1200px;
+  height: 100px;
+  background-color: yellow;
+  padding-top: 5vh;
+}
+
+.steplist__proc__item {
+  width: 300px;
+  text-align: left;
+  align-items: end;
+  /*margin-left: 50px;*/
+}
+
+p {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1200px) {
+  .steplist {
+    height: 1100px;
+  }
+
+  .steplist__proc {
+    width: 70%;
+  }
+
+  .v-timeline--vertical.v-timeline {
+    height: 800px;
+  }
+
+  .steplist__proc__item {
+    width: 30vw;
+  }
+}
 </style>

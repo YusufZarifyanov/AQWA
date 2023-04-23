@@ -1,6 +1,8 @@
 <template>
   <div class="services" id="service">
-    <div><h1>Наши услуги</h1></div>
+    <div>
+      <h1>Наши услуги</h1>
+    </div>
     <div class="services__description">
       <p>Мы проектируем и монтируем системы: отопления, водоснабжения, канализации, а также котельные в частных домах.</p>
     </div>
@@ -58,32 +60,37 @@ export default {
 
 <style scoped>
   .services {
-    height: 110vh;
+    min-height: 90vh;
     background: yellow;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+    padding-top: 10vh;
   }
 
   .services__description {
-    width: 40vw;
-    height: 100px;
+    width: 50vw;
+    min-height: 10vh;
+
     color: black;
     padding-top: 20px;
     position: relative;
+    margin: 20px 0;
+
+    text-align: center;
   }
 
   .services__images {
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
     margin: 20px;
   }
 
   .services__downloadLink {
     background-color: white;
     padding: 15px;
-    margin-top: 40px;
+    margin: 40px;
     border-radius: 10px;
   }
 
@@ -99,7 +106,30 @@ export default {
     margin-right: -50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    line-height: 20px;
-    font-size: 20px;
+    line-height: 1.5;
+    font-size: 24px;
+  }
+
+  @media (max-width: 1000px) {
+    .services__images {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .services__description {
+      width: 70vw;
+      padding: 40px 0;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .services__description {
+      width: 95vw;
+    }
+
+    p {
+      font-size: 20px;
+    }
   }
 </style>

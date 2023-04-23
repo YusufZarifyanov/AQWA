@@ -4,12 +4,17 @@
       <p>Проектирование и монтаж систем отопления в частных домах под ключ</p>
     </div>
     <div class="home__btns">
-      <div class="home__btn1">
-        <a>Рассчитать стоимость</a>
-      </div>
-      <div class="home__btn2" hr>
-        <a href="#service" style="color: white">Услуги</a>
-      </div>
+      <a href="#price" style="color: black">
+        <button class="home__btn1">
+          Рассчитать стоимость
+        </button>
+      </a>
+
+      <a href="#service">
+        <button class="home__btn2">
+          Услуги
+        </button>
+      </a>
     </div>
   </div>
 </template>
@@ -22,6 +27,7 @@ export default {
 
 <style scoped>
 .home {
+  height: 90vh;
   background-image:
       linear-gradient(to bottom, rgba(4, 69, 87, 0.80), rgba(117, 19, 93, 0.73)),
       url("@/assets/images/homeImg.jpg");
@@ -30,23 +36,28 @@ export default {
 
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding: 10vh 0 38px 10vw;
 }
 
 .home__title {
- width: 45vw;
+  width: 60vw;
+  min-height: 60px;
+  font-weight: 600;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.20);
+  text-align: left;
+  line-height: 1.23;
 }
 
 .home__btns {
   display: flex;
   flex-direction: row;
-  width: 40vw;
+  width: 50vw;
   justify-content: space-around;
-  margin-top: 40px;
+  margin-top: 10vh;
 }
 
 .home__btn1 {
-  width: 250px;
+  width: 20vw;
   height: 50px;
   background-color: yellow;
   color: black;
@@ -54,10 +65,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .home__btn2 {
-  width: 150px;
+  width: 15vw;
   height: 50px;
   background: none;
   border: 1px solid white;
@@ -67,15 +79,55 @@ export default {
   align-items: center;
   color: white;
   text-decoration: none;
+  text-align: center;
 }
 
 p {
   color: white;
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 600;
 }
 
 a {
   text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .home__title {
+    width: 70vw;
+  }
+
+  .home__btns {
+    width: 70vw;
+  }
+
+  .home__btn1 {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 600px) {
+  p {
+    font-size: 30px;
+  }
+
+  .home {
+    padding-top: 20vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .home__btns {
+    flex-direction: column;
+  }
+
+  .home__btn1 {
+    width: 60vw;
+  }
+
+  .home__btn2 {
+    margin-top: 20px;
+    width: 40vw;
+  }
 }
 </style>

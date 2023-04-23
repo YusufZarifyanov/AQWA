@@ -24,13 +24,23 @@
 
 <script>
 export default {
-  name: "Contacts"
+  name: "Contacts",
+  data: () => ({
+    coords: [
+      54.82896654088406,
+      39.831893822753904,
+    ],
+  }),
+  methods: {
+    onClick(e) {
+      this.coords = e.get('coords');
+    },
+  },
 }
 </script>
 
 <style scoped>
 .contacts {
-  height: 100vh;
   background-color: #f0f0f0;
 
   display: flex;
@@ -43,7 +53,9 @@ export default {
 }
 
 .contacts__location {
-
+  width: 70%;
+  height: 500px;
+  /*background-color: gray;*/
 }
 
 .contacts__icons {

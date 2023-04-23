@@ -26,25 +26,27 @@ export default {
 
 <style scoped>
 .navbar {
-  height: 75px;
+  width: 100%;
   background-color: black;
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: space-around;
 }
 
 .navbar__btns {
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
 }
 
 .navbar__btn {
   background: black;
-  margin: 20px;
   color: yellow;
   border: 0 black;
   text-decoration: none;
+  margin: 10px;
 }
 
 .navbar__title {
@@ -56,5 +58,25 @@ export default {
   color: yellow;
   display: flex;
   flex-direction: column;
+  margin: 10px 0;
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar__btns {
+    flex-direction: column;
+    margin: 30px 0;
+  }
+
+  .navbar__contacts {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+
 }
 </style>

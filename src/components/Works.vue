@@ -117,16 +117,22 @@ export default {
 
 <style scoped>
 .works {
-  min-height: 200vh;
+  min-height: 100vh;
   background-color: #f0f0f0;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .works__title {
   width: 100%;
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 30px;
 }
 
 .works__images {
@@ -134,20 +140,39 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .works__profit {
-  width: 100%;
+  min-width: 50vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  margin: 20px 5vw 5vh 20px;
 }
 
 img {
-  width: 200px;
-  height: 200px;
-  margin: 30px;
+  width: 25vw;
+  height: 25vw;
+  padding: 20px 20px;
+}
+
+@media (max-width: 950px) {
+  img {
+    width: 45vw;
+    height: 45vw;
+    padding: 5px 5px;
+  }
+
+  .works__images {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 25px;
+  }
 }
 </style>

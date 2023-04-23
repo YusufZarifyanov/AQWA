@@ -40,4 +40,8 @@ export default {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+p {
+  font-family: 'Roboto',Arial,sans-serif;
+}
 </style>

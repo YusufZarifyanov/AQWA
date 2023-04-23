@@ -6,9 +6,11 @@
       <p>{{description}}</p>
     </div>
 
-    <div class="serviceItem__link">
-      <a>Рассчитать стоимость</a>
-    </div>
+    <a href="#price">
+      <button class="serviceItem__btn">
+        Рассчитать стоимость
+      </button>
+    </a>
   </div>
 </template>
 
@@ -32,7 +34,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 25%;
+  margin-bottom: 20px;
 }
 
 .serviceItem__description {
@@ -44,21 +47,34 @@ export default {
   padding-top: 10px;
 }
 
-.serviceItem__link {
+.serviceItem__btn {
   margin-top: 20px;
   background-color: black;
   color: yellow;
   padding: 10px;
   border-radius: 10px;
+  text-align: center;
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  width: 80%;
+  height: 80%;
 }
 
 p {
   font-size: 22px;
 }
 
+@media (max-width: 1000px) {
+  .serviceItem {
+    width: 75%;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 550px) {
+  .serviceItem {
+    width: 90vw;
+  }
+}
 </style>

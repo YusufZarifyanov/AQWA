@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .workItem {
-  width: 300px;
+  width: 30%;
   display: flex;
   flex-direction: row;
   margin: 30px 20px;
@@ -61,8 +61,18 @@ export default {
   margin-left: 10px;
 }
 
-p {
+h3 {
   font-size: 16px;
+}
+
+p {
+  font-size: 14px;
   line-height: 1.55;
+}
+
+@media (max-width: 950px) {
+  .workItem {
+    width: 80%;
+  }
 }
 </style>
